@@ -35,7 +35,7 @@ public class DeliveryTest {
         // Вводим первую дату
         $("[data-test-id=date] .input__control[placeholder='Дата встречи']").setValue(DataConstructor.generateData(daysToAddForFirstMeeting));
         // Вводим Имя и Фамилию
-        $("[data-test-id=name] .input__control[name='name']").setValue(DataConstructor.generateName("ru"));
+        $("[data-test-id=name] .input__control[name='name']").setValue(validUser.getName());
         // Номер телефона
         $("[data-test-id=phone] .input__control[name='phone']").setValue(validUser.getPhone());
         $("[data-test-id=agreement] .checkbox__box").click();
