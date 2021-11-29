@@ -2,7 +2,10 @@
 package ru.netology.delivery.test;
 
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.BeforeEach;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -16,9 +19,16 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class DeliveryTest {
 
-    @BeforeEach
-    void setup() {
-        open("http://localhost:9999");
+    @BeforeAll
+    static void setUpAll() {
+            open("http://localhost:9999");
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
 
